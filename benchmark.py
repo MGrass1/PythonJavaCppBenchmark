@@ -17,9 +17,6 @@ class Benchmarker(object):
         self.ceiling = int()
         self.processes = list()
         self.threads = list()
-        self.java_time = float()
-        self.py_time = float()
-        self.cpp_time = float()
 
         self.threads.append(threading.Thread(target=self.get_py_primes))
         self.threads.append(threading.Thread(target=self.get_cpp_primes))
@@ -83,7 +80,6 @@ class Benchmarker(object):
         for num in range(self.ceiling):
             self.py_is_prime(num)
         total = time.clock() - start
-        self.py_time = round(total, 3)
         print("\nPython finished in %s seconds." % (total,))
 
     def get_cpp_primes(self):
@@ -91,7 +87,6 @@ class Benchmarker(object):
         for num in range(self.ceiling):
             lib.cpp_is_prime(num)
         total = time.clock() - start
-        self.cpp_time = round(total, 3)
         print("\nCpp finished in %s seconds." % (total,))
 
     def get_java_primes(self):
@@ -101,7 +96,6 @@ class Benchmarker(object):
             self.sock.send(byte_packet)
             self.sock.recv(self.msg_len)
         total = time.clock() - start
-        self.java_time = round(total, 3)
         print("\nJava finished in %s seconds." % (total,))
 
     def test_accuracy(self):
