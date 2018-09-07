@@ -4,5 +4,7 @@ A test of imported cpp-libraries and Java Socket Servers vs Python. Additional b
 
 
 To run benchmark:
+
 Run the java server with: java PrimeServer
+
 Run benchmark.py
