@@ -57,14 +57,14 @@ class Benchmarker(object):
 
     def get_py_primes(self):
         start = time.clock()
-        for num in range(self.ceiling):
+        for num in range(2, self.ceiling):
             py_is_prime(num)
         total = time.clock() - start
         print("\nPython finished in %s seconds." % (total,))
 
     def get_cpp_primes(self):
         start = time.clock()
-        for num in range(self.ceiling):
+        for num in range(2, self.ceiling):
             lib.cpp_is_prime(num)
         total = time.clock() - start
         print("\nCpp finished in %s seconds." % (total,))
@@ -93,9 +93,8 @@ class Benchmarker(object):
             response = str(self.sock.recv(self.msg_len).decode("UTF-8")).replace("0", "")
             if "True" in response:
                 java_primes_found.append(num)
-
         assert cpp_primes_found == java_primes_found == python_primes_found
-        print("\nAll lists identical, functions successful.\n")
+        print("\nAll lists identical, functions are accurate.\n")
 
 
 def py_is_prime(possible_prime):
