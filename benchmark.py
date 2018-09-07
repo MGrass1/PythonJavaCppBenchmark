@@ -4,7 +4,7 @@ import time
 import threading
 import multiprocessing
 from ctypes import cdll
-lib = cdll.LoadLibrary("primes.dll")
+lib = cdll.LoadLibrary("./cpp/primes.dll")
 
 
 class Benchmarker(object):
